@@ -200,7 +200,7 @@ export function BrokenForm() {
 }
 
 // Export all challenges
-export default {
+const ReactBasicsChallenge = {
   BrokenCounter,
   BrokenEventHandler,
   BrokenList,
@@ -208,4 +208,6 @@ export default {
   UserCardTest,
   BrokenForm
 };
+
+export default ReactBasicsChallenge;
 

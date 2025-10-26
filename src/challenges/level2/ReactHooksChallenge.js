@@ -14,6 +14,7 @@ export function BrokenUseEffect() {
   const [multiplier, setMultiplier] = useState(1);
   const [result, setResult] = useState(0);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     // Calculate result
     setResult(count * multiplier);
@@ -135,6 +136,7 @@ export function BrokenUseCallback() {
   const [multiplier, setMultiplier] = useState(1);
 
   // Bug: Missing dependency in useCallback
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const calculate = useCallback(() => {
     return count * multiplier;
   }, [count]); // Bug: Missing multiplier in dependencies
@@ -204,6 +206,7 @@ export function BrokenUseRef() {
   const [renderCount, setRenderCount] = useState(0);
   let previousValue = 0; // Bug: Should use useRef
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     previousValue = renderCount; // Bug: Won't persist across renders
   });
@@ -226,7 +229,7 @@ export function BrokenUseRef() {
   );
 }
 
-export default {
+const ReactHooksChallenge = {
   BrokenUseEffect,
   BrokenInfiniteLoop,
   BrokenCustomHook,
@@ -234,4 +237,6 @@ export default {
   BrokenMemoryLeak,
   BrokenUseRef
 };
+
+export default ReactHooksChallenge;
 

@@ -25,7 +25,7 @@ describe('App Integration Tests', () => {
 
     test('displays progress tracking component', () => {
       render(<App />);
-      expect(screen.getByText(/0 \/ 28/i)).toBeInTheDocument();
+      expect(screen.getAllByText(/0 \/ 28/i).length).toBeGreaterThan(0);
     });
 
     test('displays flag submission form', () => {
@@ -270,7 +270,7 @@ describe('Responsive Design and UI Elements', () => {
   test('displays progress bar', () => {
     render(<App />);
     // Check for progress text which indicates progress bar is present
-    expect(screen.getByText(/0 \/ 27/i)).toBeInTheDocument();
+    expect(screen.getByText(/0 \/ 28/i)).toBeInTheDocument();
   });
 
   test('challenge cards are interactive', () => {

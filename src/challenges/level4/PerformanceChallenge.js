@@ -1,4 +1,4 @@
-import { useState, useMemo, memo, useCallback, lazy, Suspense } from 'react';
+import { useState } from 'react';
 import HeavyComponent from './HeavyComponent';
 
 /**

@@ -329,7 +329,7 @@ export function BrokenDataContainer() {
   );
 }
 
-export default {
+const StateManagementChallenge = {
   BrokenThemeProvider,
   BrokenThemeConsumer,
   BrokenReducer,
@@ -340,4 +340,6 @@ export default {
   BrokenDataLoader,
   BrokenDataContainer
 };
+
+export default StateManagementChallenge;
 

@@ -101,8 +101,8 @@ describe('App Integration Tests', () => {
     test('progress updates after flag submission', () => {
       render(<App />);
       
-      // Initial progress should be 0/27
-      expect(screen.getByText(/0 \/ 27/i)).toBeInTheDocument();
+      // Initial progress should be 0/28
+      expect(screen.getByText(/0 \/ 28/i)).toBeInTheDocument();
       
       const flagInput = screen.getByPlaceholderText(/Enter flag here/i);
       const submitButton = screen.getByText(/Submit Flag/i);
@@ -110,8 +110,8 @@ describe('App Integration Tests', () => {
       fireEvent.change(flagInput, { target: { value: 'FLAG_1_COUNTER_a3f8b2c1' } });
       fireEvent.click(submitButton);
       
-      // Progress should update to 1/27
-      expect(screen.getByText(/1 \/ 27/i)).toBeInTheDocument();
+      // Progress should update to 1/28
+      expect(screen.getByText(/1 \/ 28/i)).toBeInTheDocument();
     });
   });
 });
