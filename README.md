@@ -200,28 +200,6 @@ npm test -- --clearCache
 npm test
 ```
 
----
-
-## 👨‍💼 For Interviewers & Administrators
-
-### Initial Setup
-
-1. **Test the application yourself**
-   - Complete all challenges to understand the experience
-   - Review SOLUTIONS.md thoroughly
-   - Familiarize yourself with expected bugs and fixes
-
-2. **Prepare the environment**
-   - Ensure Node.js 18+ is installed
-   - Test that npm install works
-   - Verify the app starts correctly
-
-3. **Create candidate materials**
-   - Create a clean copy of the repository
-   - Remove SOLUTIONS.md from candidate version
-   - Prepare instruction template
-
-
 ### Evaluation Criteria
 
 #### 🏆 Flag-based Scoring
@@ -247,80 +225,71 @@ npm test
 - Comments explaining fixes: +bonus points
 - Test coverage: +bonus points
 
-### Post-Challenge Review
-
-After the challenge:
-
-1. **Review submitted flags** - How many did they capture?
-2. **Review code quality** - Are fixes correct and clean?
-3. **Check completion time** - Within target time?
-4. **Conduct follow-up discussion** using topics from SOLUTIONS.md
-
 ---
 
 ## 📚 Topics Covered
 
 ### React Fundamentals
-✅ Component lifecycle
-✅ Props and state
-✅ Event handling
-✅ Conditional rendering
-✅ Lists and keys
+- ✅ Component lifecycle
+- ✅ Props and state
+- ✅ Event handling
+- ✅ Conditional rendering
+- ✅ Lists and keys
 
 ### React Hooks
-✅ useState
-✅ useEffect
-✅ useCallback
-✅ useMemo
-✅ useRef
-✅ useContext
-✅ useReducer
-✅ Custom hooks
+- ✅ useState
+- ✅ useEffect
+- ✅ useCallback
+- ✅ useMemo
+- ✅ useRef
+- ✅ useContext
+- ✅ useReducer
+- ✅ Custom hooks
 
 ### State Management
-✅ Context API
-✅ Reducers
-✅ Complex state
-✅ State immutability
-✅ Performance optimization
+- - ✅ Context API
+- - ✅ Reducers
+- - ✅ Complex state
+- - ✅ State immutability
+- - ✅ Performance optimization
 
 ### Advanced Concepts
-✅ Error boundaries
-✅ Portals
-✅ HOCs
-✅ Render props
-✅ Compound components
-✅ Code splitting
-✅ Lazy loading
+- - ✅ Error boundaries
+- - ✅ Portals
+- - ✅ HOCs
+- - ✅ Render props
+- - ✅ Compound components
+- - ✅ Code splitting
+- - ✅ Lazy loading
 
 ### Performance
-✅ Memoization
-✅ React.memo
-✅ Virtualization concepts
-✅ Debouncing
-✅ Event optimization
+- ✅ Memoization
+- ✅ React.memo
+- ✅ Virtualization concepts
+- ✅ Debouncing
+- ✅ Event optimization
 
 ---
 
 ## 🎨 Features
 
 ### For Candidates
-✅ Beautiful, modern UI with gradient design
-✅ Progressive difficulty levels
-✅ Real-time flag validation
-✅ Progress tracking system
-✅ Challenge completion indicators
-✅ Hints in code comments
-✅ Browser console hints
-✅ Responsive design
+- ✅ Beautiful, modern UI with gradient design
+- ✅ Progressive difficulty levels
+- ✅ Real-time flag validation
+- ✅ Progress tracking system
+- ✅ Challenge completion indicators
+- ✅ Hints in code comments
+- ✅ Browser console hints
+- ✅ Responsive design
 
 ### For Interviewers
-✅ Complete solutions guide (SOLUTIONS.md)
-✅ Evaluation criteria
-✅ Time-based scoring
-✅ Comprehensive test suite
-✅ Easy to customize
-✅ Detailed setup instructions
+- ✅ Complete solutions guide (SOLUTIONS.md)
+- ✅ Evaluation criteria
+- ✅ Time-based scoring
+- ✅ Comprehensive test suite
+- ✅ Easy to customize
+- ✅ Detailed setup instructions
 
 ---
 
@@ -345,6 +314,29 @@ npm run lint
 # Fix lint issues
 npm run lint:fix
 ```
+
+
+---
+
+## 👨‍💼 For Interviewers & Administrators
+
+### Initial Setup
+
+1. **Test the application yourself**
+   - Complete all challenges to understand the experience
+   - Review SOLUTIONS.md thoroughly
+   - Familiarize yourself with expected bugs and fixes
+
+2. **Prepare the environment**
+   - Ensure Node.js 18+ is installed
+   - Test that npm install works
+   - Verify the app starts correctly
+
+3. **Create candidate materials**
+   - Create a clean copy of the repository
+   - Remove SOLUTIONS.md from candidate version
+   - Prepare instruction template
+
 
 ---
 
