@@ -247,20 +247,20 @@ npm test
 - ✅ Custom hooks
 
 ### State Management
-- - ✅ Context API
-- - ✅ Reducers
-- - ✅ Complex state
-- - ✅ State immutability
-- - ✅ Performance optimization
+- ✅ Context API
+- ✅ Reducers
+- ✅ Complex state
+- ✅ State immutability
+- ✅ Performance optimization
 
 ### Advanced Concepts
-- - ✅ Error boundaries
-- - ✅ Portals
-- - ✅ HOCs
-- - ✅ Render props
-- - ✅ Compound components
-- - ✅ Code splitting
-- - ✅ Lazy loading
+- ✅ Error boundaries
+- ✅ Portals
+- ✅ HOCs
+- ✅ Render props
+- ✅ Compound components
+- ✅ Code splitting
+- ✅ Lazy loading
 
 ### Performance
 - ✅ Memoization
