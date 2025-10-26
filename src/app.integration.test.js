@@ -128,7 +128,7 @@ describe('Level 1 Challenges - Rendering Tests', () => {
     expect(screen.getAllByText(/Event Handler/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/List Rendering/i)).toBeInTheDocument();
     expect(screen.getByText(/Props Handling/i)).toBeInTheDocument();
-    expect(screen.getByText(/Form State/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Form State/i).length).toBeGreaterThan(0);
   });
 
   test('Level 1 shows 5 challenges', () => {
@@ -149,7 +149,7 @@ describe('Level 2 Challenges - Rendering Tests', () => {
     // Check challenge names are present (use getAllByText for names that appear multiple times)
     expect(screen.getByText(/useEffect Deps/i)).toBeInTheDocument();
     expect(screen.getAllByText(/Infinite Loop/i).length).toBeGreaterThan(0);
-    expect(screen.getByText(/Custom Hook/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Custom Hook/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/useCallback/i)).toBeInTheDocument();
     expect(screen.getByText(/Memory Leak/i)).toBeInTheDocument();
     expect(screen.getByText(/useRef/i)).toBeInTheDocument();
@@ -170,10 +170,10 @@ describe('Level 3 Challenges - Rendering Tests', () => {
     const level3Card = screen.getByText(/Level 3: State Management/i).closest('.level-card');
     fireEvent.click(level3Card);
     
-    // Check challenge names are present
+    // Check challenge names are present (use getAllByText for names that appear multiple times)
     expect(screen.getByText(/Context Provider/i)).toBeInTheDocument();
     expect(screen.getByText(/Reducer Logic/i)).toBeInTheDocument();
-    expect(screen.getByText(/State Batching/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/State Batching/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Nested State/i)).toBeInTheDocument();
     expect(screen.getByText(/Context Perf/i)).toBeInTheDocument();
   });
@@ -195,7 +195,7 @@ describe('Level 4 Challenges - Rendering Tests', () => {
     
     // Check challenge names are present (use getAllByText for names that appear multiple times)
     expect(screen.getAllByText(/useMemo/i).length).toBeGreaterThan(0);
-    expect(screen.getByText(/React.memo/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/React.memo/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Large List/i)).toBeInTheDocument();
     expect(screen.getByText(/Event Optimization/i)).toBeInTheDocument();
     expect(screen.getByText(/Code Splitting/i)).toBeInTheDocument();
@@ -219,7 +219,7 @@ describe('Level 5 Challenges - Rendering Tests', () => {
     
     // Check challenge names are present (use getAllByText for names that appear multiple times)
     expect(screen.getAllByText(/Compound Components/i).length).toBeGreaterThan(0);
-    expect(screen.getByText(/Render Props/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Render Props/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/HOC/i)).toBeInTheDocument();
     expect(screen.getByText(/Portal/i)).toBeInTheDocument();
     expect(screen.getByText(/Error Boundary/i)).toBeInTheDocument();
