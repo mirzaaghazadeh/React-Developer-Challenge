@@ -30,7 +30,7 @@ describe('App Integration Tests', () => {
 
     test('displays flag submission form', () => {
       render(<App />);
-      expect(screen.getByPlaceholderText(/Enter flag here/i)).toBeInTheDocument();
+      expect(screen.getByPlaceholderText(/FLAG_X_CHALLENGENAME_XXXXXXXX/i)).toBeInTheDocument();
       expect(screen.getByText(/Submit Flag/i)).toBeInTheDocument();
     });
 
@@ -88,7 +88,7 @@ describe('App Integration Tests', () => {
     test('can submit a flag', () => {
       render(<App />);
       
-      const flagInput = screen.getByPlaceholderText(/Enter flag here/i);
+      const flagInput = screen.getByPlaceholderText(/FLAG_X_CHALLENGENAME_XXXXXXXX/i);
       const submitButton = screen.getByText(/Submit Flag/i);
       
       fireEvent.change(flagInput, { target: { value: 'FLAG_1_COUNTER_a3f8b2c1' } });
@@ -104,7 +104,7 @@ describe('App Integration Tests', () => {
       // Initial progress should be 0/27
       expect(screen.getByText(/0 \/ 27/i)).toBeInTheDocument();
       
-      const flagInput = screen.getByPlaceholderText(/Enter flag here/i);
+      const flagInput = screen.getByPlaceholderText(/FLAG_X_CHALLENGENAME_XXXXXXXX/i);
       const submitButton = screen.getByText(/Submit Flag/i);
       
       fireEvent.change(flagInput, { target: { value: 'FLAG_1_COUNTER_a3f8b2c1' } });
@@ -123,9 +123,9 @@ describe('Level 1 Challenges - Rendering Tests', () => {
     const level1Card = screen.getByText(/Level 1: React Basics/i).closest('.level-card');
     fireEvent.click(level1Card);
     
-    // Check all challenge names are present
+    // Check all challenge names are present (use getAllByText for names that appear multiple times)
     expect(screen.getByText(/Counter Bug/i)).toBeInTheDocument();
-    expect(screen.getByText(/Event Handler/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Event Handler/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/List Rendering/i)).toBeInTheDocument();
     expect(screen.getByText(/Props Handling/i)).toBeInTheDocument();
     expect(screen.getByText(/Form State/i)).toBeInTheDocument();
@@ -146,9 +146,9 @@ describe('Level 2 Challenges - Rendering Tests', () => {
     const level2Card = screen.getByText(/Level 2: React Hooks/i).closest('.level-card');
     fireEvent.click(level2Card);
     
-    // Check challenge names are present
+    // Check challenge names are present (use getAllByText for names that appear multiple times)
     expect(screen.getByText(/useEffect Deps/i)).toBeInTheDocument();
-    expect(screen.getByText(/Infinite Loop/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Infinite Loop/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Custom Hook/i)).toBeInTheDocument();
     expect(screen.getByText(/useCallback/i)).toBeInTheDocument();
     expect(screen.getByText(/Memory Leak/i)).toBeInTheDocument();
@@ -193,8 +193,8 @@ describe('Level 4 Challenges - Rendering Tests', () => {
     const level4Card = screen.getByText(/Level 4: Performance/i).closest('.level-card');
     fireEvent.click(level4Card);
     
-    // Check challenge names are present
-    expect(screen.getByText(/useMemo/i)).toBeInTheDocument();
+    // Check challenge names are present (use getAllByText for names that appear multiple times)
+    expect(screen.getAllByText(/useMemo/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/React.memo/i)).toBeInTheDocument();
     expect(screen.getByText(/Large List/i)).toBeInTheDocument();
     expect(screen.getByText(/Event Optimization/i)).toBeInTheDocument();
@@ -217,8 +217,8 @@ describe('Level 5 Challenges - Rendering Tests', () => {
     const level5Card = screen.getByText(/Level 5: Advanced Patterns/i).closest('.level-card');
     fireEvent.click(level5Card);
     
-    // Check challenge names are present
-    expect(screen.getByText(/Compound Components/i)).toBeInTheDocument();
+    // Check challenge names are present (use getAllByText for names that appear multiple times)
+    expect(screen.getAllByText(/Compound Components/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Render Props/i)).toBeInTheDocument();
     expect(screen.getByText(/HOC/i)).toBeInTheDocument();
     expect(screen.getByText(/Portal/i)).toBeInTheDocument();
@@ -250,7 +250,7 @@ describe('Challenge Completion Tracking', () => {
     render(<App />);
     
     // Submit a Level 1 flag
-    const flagInput = screen.getByPlaceholderText(/Enter flag here/i);
+    const flagInput = screen.getByPlaceholderText(/FLAG_X_CHALLENGENAME_XXXXXXXX/i);
     const submitButton = screen.getByText(/Submit Flag/i);
     
     fireEvent.change(flagInput, { target: { value: 'FLAG_1_COUNTER_a3f8b2c1' } });
