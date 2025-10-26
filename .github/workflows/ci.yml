@@ -1,0 +1,195 @@
+name: CI - React Developer Challenge
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run linter
+      run: npm run lint
+    
+    - name: Run tests
+      run: npm test -- --coverage --watchAll=false
+    
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3
+      if: matrix.node-version == '20.x'
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./coverage/coverage-final.json
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build application
+      run: npm run build
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build
+        path: build/
+        retention-days: 7
+
+  lint-check:
+    name: Lint and Code Quality
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run ESLint
+      run: npm run lint
+      continue-on-error: true
+    
+    - name: Check for console.logs (optional)
+      run: |
+        if grep -r "console.log" src/ --exclude-dir=node_modules; then
+          echo "Warning: console.log statements found"
+        fi
+      continue-on-error: true
+
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run integration tests
+      run: npm test -- tests/app.integration.test.js --watchAll=false --verbose
+    
+    - name: Test all challenges render
+      run: npm test -- --testNamePattern="Rendering Tests" --watchAll=false
+
+  validate-challenges:
+    name: Validate All Challenges
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Validate challenge files exist
+      run: |
+        echo "Checking Level 1 challenges..."
+        test -f src/challenges/level1/ReactBasicsChallenge.js
+        
+        echo "Checking Level 2 challenges..."
+        test -f src/challenges/level2/ReactHooksChallenge.js
+        
+        echo "Checking Level 3 challenges..."
+        test -f src/challenges/level3/StateManagementChallenge.js
+        
+        echo "Checking Level 4 challenges..."
+        test -f src/challenges/level4/PerformanceChallenge.js
+        test -f src/challenges/level4/HeavyComponent.js
+        
+        echo "Checking Level 5 challenges..."
+        test -f src/challenges/level5/AdvancedPatternsChallenge.js
+        
+        echo "✅ All challenge files exist!"
+    
+    - name: Count total challenges
+      run: |
+        echo "Verifying challenge count in App.js..."
+        CHALLENGE_COUNT=$(grep -o "FLAG_[0-9]" src/App.js | wc -l)
+        echo "Found $CHALLENGE_COUNT challenge references"
+        if [ $CHALLENGE_COUNT -ne 27 ]; then
+          echo "❌ Expected 27 challenges, found $CHALLENGE_COUNT"
+          exit 1
+        fi
+        echo "✅ All 27 challenges are registered!"
+
+  security-check:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Run npm audit
+      run: npm audit --audit-level=moderate
+      continue-on-error: true
+    
+    - name: Check for package vulnerabilities
+      run: npm audit --production
+      continue-on-error: true
+

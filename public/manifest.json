@@ -1,0 +1,10 @@
+{
+  "short_name": "React Challenge",
+  "name": "React Developer Challenge",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff"
+}
+

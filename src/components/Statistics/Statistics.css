@@ -1,0 +1,269 @@
+.statistics-container {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.statistics-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.statistics-header h3 {
+  color: #667eea;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.performance-card {
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.performance-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+}
+
+.performance-card .stat-label,
+.performance-card .performance-description {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.performance-card .stat-icon {
+  font-size: 4rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.performance-card .stat-value {
+  color: white;
+}
+
+.performance-card .stat-content {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-percentage {
+  font-size: 1rem;
+  color: #666;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.performance-card .stat-percentage {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.stat-progress {
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.stat-progress-fill {
+  height: 100%;
+  background: #4caf50;
+  transition: width 0.5s ease;
+  border-radius: 4px;
+}
+
+.hint-impact {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.impact-good {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.impact-ok {
+  color: #2196f3;
+  font-weight: 600;
+}
+
+.impact-moderate {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.impact-high {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.performance-level {
+  font-size: 1.8rem !important;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white !important;
+  position: relative;
+  z-index: 1;
+}
+
+.performance-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.performance-card .performance-description {
+  font-size: 1rem;
+}
+
+.performance-card .performance-description strong {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 1);
+}
+
+.statistics-footer {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.scoring-info {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  margin-bottom: 15px;
+}
+
+.scoring-info strong {
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+.scoring-info ul {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+}
+
+.scoring-info li {
+  color: #666;
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.reset-progress {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.reset-button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3);
+}
+
+.reset-button:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.4);
+}
+
+.reset-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .statistics-container {
+    padding: 15px;
+  }
+
+  .statistics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+  }
+}
+
