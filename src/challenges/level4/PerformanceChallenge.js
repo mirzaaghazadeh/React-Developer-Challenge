@@ -293,7 +293,7 @@ export function BrokenDebounce() {
   );
 }
 
-export default {
+const PerformanceChallenge = {
   BrokenUseMemo,
   BrokenReactMemo,
   BrokenLargeList,
@@ -301,4 +301,6 @@ export default {
   BrokenCodeSplitting,
   BrokenDebounce
 };
+
+export default PerformanceChallenge;
 

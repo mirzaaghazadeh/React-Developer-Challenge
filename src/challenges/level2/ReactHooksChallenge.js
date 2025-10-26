@@ -136,10 +136,9 @@ export function BrokenUseCallback() {
   const [multiplier, setMultiplier] = useState(1);
 
   // Bug: Missing dependency in useCallback
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const calculate = useCallback(() => {
     return count * multiplier;
-  }, [count]); // Bug: Missing multiplier in dependencies
+  }, [count]); // eslint-disable-line react-hooks/exhaustive-deps -- Bug: Missing multiplier in dependencies
 
   const result = calculate();
 
@@ -206,9 +205,8 @@ export function BrokenUseRef() {
   const [renderCount, setRenderCount] = useState(0);
   let previousValue = 0; // Bug: Should use useRef
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    previousValue = renderCount; // Bug: Won't persist across renders
+    previousValue = renderCount; // eslint-disable-line react-hooks/exhaustive-deps -- Bug: Won't persist across renders
   });
 
   // Flag appears when ref correctly tracks previous value

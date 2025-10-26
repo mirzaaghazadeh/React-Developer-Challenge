@@ -1,5 +1,4 @@
-import { Component, createContext, useContext, useState, createPortal } from 'react';
-import ReactDOM from 'react-dom';
+import { Component, createContext, useContext, useState } from 'react';
 
 /**
  * Level 5: Advanced React Patterns
@@ -13,6 +12,7 @@ import ReactDOM from 'react-dom';
 const TabsContext = createContext();
 
 export function BrokenTabs({ children }) {
+  // eslint-disable-next-line no-unused-vars
   const [activeTab, setActiveTab] = useState(0);
 
   // Bug: Not providing value object structure correctly
@@ -212,6 +212,7 @@ export function BrokenModal({ isOpen, onClose, children }) {
   if (!isOpen) return null;
 
   // Bug: Not checking if portal root exists
+  // eslint-disable-next-line no-unused-vars
   const portalRoot = document.getElementById('modal-root');
 
   return (
@@ -394,7 +395,7 @@ export function BrokenHooksComposition() {
   );
 }
 
-export default {
+const AdvancedPatternsChallenge = {
   BrokenTabs,
   TabList,
   Tab,
@@ -409,4 +410,6 @@ export default {
   BrokenErrorBoundaryDemo,
   BrokenHooksComposition
 };
+
+export default AdvancedPatternsChallenge;
 
