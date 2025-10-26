@@ -221,49 +221,6 @@ npm test
    - Remove SOLUTIONS.md from candidate version
    - Prepare instruction template
 
-### Candidate Instructions Template
-
-```
-# React Developer Challenge
-
-Welcome! This is a practical assessment to test your React skills.
-
-## Overview
-- Time limit: 45 minutes
-- 5 levels with increasing difficulty
-- 27 total challenges
-- Find bugs, fix them, and capture flags
-
-## Setup
-1. Extract the challenge files
-2. Run `npm install`
-3. Run `npm start`
-4. Open http://localhost:3000
-
-## Rules
-- You may use any online resources (docs, Stack Overflow, etc.)
-- You may use any code editor
-- You may not collaborate with others
-- You may run tests with `npm test`
-
-## Submission
-When complete, send:
-1. Your modified code (zip the project)
-2. Screenshot of progress/flags
-3. Time taken
-
-Good luck! 🚀
-```
-
-### During the Challenge
-
-1. **Start the timer** when candidate begins
-2. **Monitor progress** without giving hints
-3. **Note observations:**
-   - Which challenges they attempt first
-   - Use of debugging tools
-   - Code quality and approach
-   - Problem-solving strategies
 
 ### Evaluation Criteria
 
@@ -388,24 +345,6 @@ npm run lint
 # Fix lint issues
 npm run lint:fix
 ```
-
----
-
-## 📦 Dependencies
-
-### Production
-- react: ^18.2.0
-- react-dom: ^18.2.0
-- react-router-dom: ^6.20.0
-- react-scripts: 5.0.1
-
-### Development
-- @testing-library/react: ^14.1.2
-- @testing-library/jest-dom: ^6.1.5
-- @testing-library/user-event: ^14.5.1
-- eslint: ^8.55.0
-- eslint-plugin-react: ^7.33.2
-- eslint-plugin-react-hooks: ^4.6.0
 
 ---
 
