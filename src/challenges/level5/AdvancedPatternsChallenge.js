@@ -127,17 +127,20 @@ export function BrokenRenderPropsDemo() {
     <div>
       <h2>Render Props Challenge</h2>
       <BrokenMouseTracker 
-        render={(x, y) => (
-          <div>
-            <p>Mouse position: ({x}, {y})</p>
-            {/* Bug: Condition to check if mouse is in specific area */}
-            {x > 100 && y > 100 && setIsInBox(true)}
-          </div>
-        )}
+        render={(x, y) => {
+          // Bug: Position should be passed as object {x, y}, not separate params
+          // Also need to handle mouse enter detection properly
+          return (
+            <div>
+              <p>Mouse position: ({x}, {y})</p>
+              {/* Users need to detect when mouse is in specific area and set state properly */}
+            </div>
+          );
+        }}
       />
       {flag && <p style={{ color: 'green' }}>🎉 {flag}</p>}
       <p style={{ fontSize: '12px', color: '#666' }}>
-        Hint: Move mouse to bottom-right area
+        Hint: Fix how position is passed and add detection for mouse in bottom-right
       </p>
     </div>
   );

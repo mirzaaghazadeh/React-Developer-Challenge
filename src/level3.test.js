@@ -8,7 +8,10 @@ import {
   BrokenNestedState
 } from '../src/challenges/level3/StateManagementChallenge';
 
-describe('Level 3: State Management Challenges', () => {
+// Skip challenge solution tests in CI - these test if challenges are SOLVED
+const describeIfNotCI = process.env.CI ? describe.skip : describe;
+
+describeIfNotCI('Level 3: State Management Challenges', () => {
   
   describe('Challenge 1: Context Provider', () => {
     test('should toggle theme', () => {

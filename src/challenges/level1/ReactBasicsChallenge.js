@@ -36,28 +36,28 @@ export function BrokenCounter() {
  */
 export function BrokenEventHandler() {
   const [message, setMessage] = useState('');
-  const [clickCount, setClickCount] = useState(0);
+  const [clickedButtons, setClickedButtons] = useState(new Set());
 
-  const handleClick = (text) => {
+  const handleClick = (buttonId, text) => {
     setMessage(text);
-    setClickCount(count => count + 1);
+    setClickedButtons(prev => new Set([...prev, buttonId]));
   };
 
-  // Flag appears when all three buttons work correctly
-  const flag = message === 'All buttons work!' && clickCount >= 3 ? 'FLAG_1_EVENTS_7d2c9f4e' : null;
+  // Flag appears when all three buttons have been clicked with different messages
+  const flag = clickedButtons.size >= 3 && message === 'All buttons work!' ? 'FLAG_1_EVENTS_7d2c9f4e' : null;
 
   return (
     <div>
       <h2>Event Handler Challenge</h2>
-      {/* Bug: Not passing event handlers correctly */}
-      <button onClick={handleClick('Button 1')}>Button 1</button>
-      <button onClick={handleClick('Button 2')}>Button 2</button>
-      <button onClick={handleClick('All buttons work!')}>Button 3 (All buttons work!)</button>
+      {/* Bug: All buttons call the same handler with the same message */}
+      <button onClick={() => handleClick(1, 'All buttons work!')}>Button 1</button>
+      <button onClick={() => handleClick(2, 'All buttons work!')}>Button 2</button>
+      <button onClick={() => handleClick(3, 'All buttons work!')}>Button 3</button>
       <p>Message: {message}</p>
-      <p>Clicks: {clickCount}</p>
+      <p>Buttons clicked: {clickedButtons.size}/3</p>
       {flag && <p style={{ color: 'green' }}>🎉 {flag}</p>}
       <p style={{ fontSize: '12px', color: '#666' }}>
-        Hint: Buttons should show different messages, not all the same
+        Hint: Each button should show its own unique message, not the same one
       </p>
     </div>
   );

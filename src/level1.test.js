@@ -8,7 +8,10 @@ import {
   BrokenForm
 } from '../src/challenges/level1/ReactBasicsChallenge';
 
-describe('Level 1: React Basics Challenges', () => {
+// Skip challenge solution tests in CI - these test if challenges are SOLVED
+const describeIfNotCI = process.env.CI ? describe.skip : describe;
+
+describeIfNotCI('Level 1: React Basics Challenges', () => {
   
   describe('Challenge 1: Counter Bug', () => {
     test('should increment counter correctly', () => {

@@ -9,7 +9,10 @@ import {
   BrokenUseRef
 } from '../src/challenges/level2/ReactHooksChallenge';
 
-describe('Level 2: React Hooks Challenges', () => {
+// Skip challenge solution tests in CI - these test if challenges are SOLVED
+const describeIfNotCI = process.env.CI ? describe.skip : describe;
+
+describeIfNotCI('Level 2: React Hooks Challenges', () => {
   
   describe('Challenge 1: useEffect Dependencies', () => {
     test('should update result when count changes', () => {
