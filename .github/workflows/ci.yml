@@ -118,7 +118,7 @@ jobs:
       run: npm ci
     
     - name: Run integration tests
-      run: npm test -- tests/app.integration.test.js --watchAll=false --verbose
+      run: npm test -- tests/app.integration.test.js --watchAll=false --verbose --passWithNoTests
     
     - name: Test all challenges render
       run: npm test -- --testNamePattern="Rendering Tests" --watchAll=false

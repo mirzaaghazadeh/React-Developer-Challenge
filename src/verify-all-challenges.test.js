@@ -109,9 +109,10 @@ describe('🔍 Complete Challenge Verification Suite', () => {
       const level5Button = screen.getAllByText(/Level 5/i)[0];
       fireEvent.click(level5Button);
       
-      expect(screen.getAllByText(/Compound Components/i)[0]).toBeInTheDocument();
-      expect(screen.getByText(/Render Props/i)).toBeInTheDocument();
-      expect(screen.getAllByText(/HOC/i)[0]).toBeInTheDocument();
+      // Check challenges render (may appear multiple times in title + content)
+      expect(screen.queryAllByText(/Compound Components/i).length).toBeGreaterThan(0);
+      expect(screen.queryAllByText(/Render Props/i).length).toBeGreaterThan(0);
+      expect(screen.queryAllByText(/HOC/i).length).toBeGreaterThan(0);
     });
   });
 
