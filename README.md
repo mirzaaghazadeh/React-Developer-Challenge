@@ -271,15 +271,15 @@ npm test
 
 ## 🎨 Features
 
-### For Candidates
 - ✅ Beautiful, modern UI with gradient design
-- ✅ Progressive difficulty levels
+- ✅ Progressive difficulty levels (5 levels, 28 challenges)
 - ✅ Real-time flag validation
 - ✅ Progress tracking system
 - ✅ Challenge completion indicators
 - ✅ Hints in code comments
 - ✅ Browser console hints
 - ✅ Responsive design
+- ✅ Comprehensive test suite
 
 ---
 

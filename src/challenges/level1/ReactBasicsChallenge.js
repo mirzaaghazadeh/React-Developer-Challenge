@@ -50,9 +50,9 @@ export function BrokenEventHandler() {
     <div>
       <h2>Event Handler Challenge</h2>
       {/* Bug: Not passing event handlers correctly */}
-      <button onClick={handleClick}>Button 1</button>
-      <button onClick={handleClick}>Button 2</button>
-      <button onClick={handleClick}>Button 3 (All buttons work!)</button>
+      <button onClick={handleClick('Button 1')}>Button 1</button>
+      <button onClick={handleClick('Button 2')}>Button 2</button>
+      <button onClick={handleClick('All buttons work!')}>Button 3 (All buttons work!)</button>
       <p>Message: {message}</p>
       <p>Clicks: {clickCount}</p>
       {flag && <p style={{ color: 'green' }}>🎉 {flag}</p>}
