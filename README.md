@@ -8,7 +8,7 @@ This challenge system evaluates senior React developers through practical coding
 
 ### 📊 Statistics
 
-- **Total Challenges**: 27
+- **Total Challenges**: 28
 - **Levels**: 5 (Progressive difficulty)
 - **Target Time**: 45 minutes
 - **Technologies**: React 18, Jest, React Testing Library
@@ -204,10 +204,10 @@ npm test
 
 #### 🏆 Flag-based Scoring
 
-- **27/27 (100%)**: Expert level 🏆
-- **21-26 (80-99%)**: Senior level ⭐
-- **16-20 (60-79%)**: Mid-Senior level ✨
-- **11-15 (40-59%)**: Mid level 📚
+- **28/28 (100%)**: Expert level 🏆
+- **22-27 (80-99%)**: Senior level ⭐
+- **17-21 (60-79%)**: Mid-Senior level ✨
+- **11-16 (40-59%)**: Mid level 📚
 - **<11 (<40%)**: Junior level 🌱
 
 #### ⏱️ Time-based Scoring

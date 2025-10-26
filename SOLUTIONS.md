@@ -486,10 +486,10 @@ return [value, toggle];
 - **120+ minutes**: Junior-mid level
 
 ### Completion-based Scoring
-- **100% (all 27 flags)**: Expert
-- **80-99% (21-26 flags)**: Senior
-- **60-79% (16-20 flags)**: Mid-Senior
-- **40-59% (11-15 flags)**: Mid
+- **100% (all 28 flags)**: Expert
+- **80-99% (22-27 flags)**: Senior
+- **60-79% (17-21 flags)**: Mid-Senior
+- **40-59% (11-16 flags)**: Mid
 - **< 40%**: Junior
 
 ### Quality Assessment

@@ -108,7 +108,7 @@ describe('Challenge Module Validation', () => {
   });
 
   describe('Challenge Count Validation', () => {
-    test('total of 27 challenges exist', () => {
+    test('total of 28 challenges exist', () => {
       const level1Count = 5;
       const level2Count = 6;
       const level3Count = 5;
@@ -117,7 +117,7 @@ describe('Challenge Module Validation', () => {
       
       const totalChallenges = level1Count + level2Count + level3Count + level4Count + level5Count;
       
-      expect(totalChallenges).toBe(27);
+      expect(totalChallenges).toBe(28);
     });
   });
 });
@@ -159,8 +159,8 @@ describe('Flag Validation', () => {
     'FLAG_5_HOOKCOMP_9e2c7a4f'
   ];
 
-  test('all 27 flags are defined', () => {
-    expect(expectedFlags).toHaveLength(27);
+  test('all 28 flags are defined', () => {
+    expect(expectedFlags).toHaveLength(28);
   });
 
   test('flags follow correct naming pattern', () => {
@@ -171,7 +171,7 @@ describe('Flag Validation', () => {
 
   test('flags are unique', () => {
     const uniqueFlags = new Set(expectedFlags);
-    expect(uniqueFlags.size).toBe(27);
+    expect(uniqueFlags.size).toBe(28);
   });
 
   test('each level has correct flag prefix', () => {

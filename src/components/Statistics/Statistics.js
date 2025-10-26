@@ -150,7 +150,7 @@ function Statistics({ totalChallenges, completedChallenges, hintsUsed, totalHint
           <ul>
             <li>Complete challenges without hints for best performance</li>
             <li>Each hint used is tracked in your overall statistics</li>
-            <li>Target: Complete all 27 challenges in 45 minutes</li>
+            <li>Target: Complete all 28 challenges in 45 minutes</li>
             <li>💾 Your progress is automatically saved and persists across page refreshes</li>
           </ul>
         </div>

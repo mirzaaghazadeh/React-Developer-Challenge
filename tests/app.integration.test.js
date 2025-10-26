@@ -25,7 +25,7 @@ describe('App Integration Tests', () => {
 
     test('displays progress tracking component', () => {
       render(<App />);
-      expect(screen.getByText(/0 \/ 27/i)).toBeInTheDocument();
+      expect(screen.getByText(/0 \/ 28/i)).toBeInTheDocument();
     });
 
     test('displays flag submission form', () => {

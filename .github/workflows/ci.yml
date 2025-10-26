@@ -165,11 +165,11 @@ jobs:
         echo "Verifying challenge count in App.js..."
         CHALLENGE_COUNT=$(grep -o "FLAG_[0-9]" src/App.js | wc -l)
         echo "Found $CHALLENGE_COUNT challenge references"
-        if [ $CHALLENGE_COUNT -ne 27 ]; then
-          echo "❌ Expected 27 challenges, found $CHALLENGE_COUNT"
+        if [ $CHALLENGE_COUNT -ne 28 ]; then
+          echo "❌ Expected 28 challenges, found $CHALLENGE_COUNT"
           exit 1
         fi
-        echo "✅ All 27 challenges are registered!"
+        echo "✅ All 28 challenges are registered!"
 
   security-check:
     name: Security Audit
