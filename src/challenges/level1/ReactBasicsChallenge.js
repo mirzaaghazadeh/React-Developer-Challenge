@@ -108,21 +108,20 @@ export function BrokenList() {
  * Challenge 4: Props Destructuring Bug
  * Component is not receiving props correctly
  */
-export function UserCard(props) {
-  // Bug: Incorrect destructuring - wrong prop names
-  const { username, userAge, userEmail } = props;
+export function UserCard({ username, email, age }) {
+  // Bug: Using wrong prop names - props are actually named differently
 
   // Flag appears when all props are displayed correctly
-  const hasAllProps = username && userEmail && userAge;
+  const hasAllProps = username && email && age;
   const flag = hasAllProps ? 'FLAG_1_PROPS_4c7e2a9f' : null;
 
   return (
     <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
       <h3>User Card Challenge</h3>
-      {/* Bug: Using wrong prop names */}
+      {/* Bug: Variables don't match the passed props */}
       <p>Name: {username}</p>
-      <p>Email: {userEmail}</p>
-      <p>Age: {userAge}</p>
+      <p>Email: {email}</p>
+      <p>Age: {age}</p>
       {flag && <p style={{ color: 'green' }}>🎉 {flag}</p>}
     </div>
   );
@@ -132,7 +131,7 @@ export function UserCard(props) {
 export function UserCardTest() {
   return (
     <UserCard 
-      username="John Doe" 
+      name="John Doe" 
       email="john@example.com" 
       age={30} 
     />
