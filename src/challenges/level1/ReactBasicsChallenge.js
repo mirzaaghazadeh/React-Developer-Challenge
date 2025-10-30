@@ -6,18 +6,16 @@ import { useState } from 'react';
  */
 
 /**
- * Challenge 1: useState Hook Bug
- * The counter is not incrementing properly
+ * Challenge 1: Counter Challenge
  */
 export function BrokenCounter() {
-  let count = 0; // Bug: Should use useState
+  let count = 0; 
 
   const increment = () => {
-    count = count + 1; // Bug: Direct mutation won't trigger re-render
+    count = count + 1; 
     console.log('Count:', count);
   };
 
-  // Flag will appear when counter works correctly
   const flag = count === 5 ? 'FLAG_1_COUNTER_a3f8b2c1' : null;
 
   return (
@@ -31,8 +29,7 @@ export function BrokenCounter() {
 }
 
 /**
- * Challenge 2: Event Handler Issue
- * Button click is not working as expected
+ * Challenge 2: Event Handler Challenge
  */
 export function BrokenEventHandler() {
   const [message, setMessage] = useState('');
@@ -40,45 +37,37 @@ export function BrokenEventHandler() {
 
   const handleClick = (buttonId, text) => {
     setMessage(text);
-    setClickedButtons(prev => new Set([...prev, buttonId]));
+    setClickedButtons(new Set([buttonId]));
   };
 
-  // Flag appears when all three buttons have been clicked with different messages
-  const flag = clickedButtons.size >= 3 && message === 'All buttons work!' ? 'FLAG_1_EVENTS_7d2c9f4e' : null;
+  const flag = clickedButtons.size >= 3 && message === 'Button 3' ? 'FLAG_1_EVENTS_7d2c9f4e' : null;
 
   return (
     <div>
       <h2>Event Handler Challenge</h2>
-      {/* Bug: All buttons call the same handler with the same message */}
-      <button onClick={() => handleClick(1, 'All buttons work!')}>Button 1</button>
-      <button onClick={() => handleClick(2, 'All buttons work!')}>Button 2</button>
-      <button onClick={() => handleClick(3, 'All buttons work!')}>Button 3</button>
+      <button onClick={() => handleClick(1, 'Button 1')}>Button 1</button>
+      <button onClick={() => handleClick(2, 'Button 2')}>Button 2</button>
+      <button onClick={() => handleClick(3, 'Button 3')}>Button 3</button>
       <p>Message: {message}</p>
       <p>Buttons clicked: {clickedButtons.size}/3</p>
       {flag && <p style={{ color: 'green' }}>🎉 {flag}</p>}
-      <p style={{ fontSize: '12px', color: '#666' }}>
-        Hint: Each button should show its own unique message, not the same one
-      </p>
     </div>
   );
 }
 
 /**
  * Challenge 3: Conditional Rendering Bug
- * Items are not rendering correctly
  */
 export function BrokenList() {
-  const [items, setItems] = useState(['Apple', 'Banana', 'Cherry']);
+  const items = ['Apple', 'Banana', 'Cherry'];
   const [showItems, setShowItems] = useState(false);
 
   const addItem = () => {
-    setItems([...items, `Item ${items.length + 1}`]);
+    const local = [...items];
+    local.push(`Item ${local.length + 1}`);
+    items.push(local);
   };
 
-  // Bug: Wrong conditional logic
-  const shouldShow = !showItems;
-
-  // Flag appears when list renders correctly with 5+ items
   const flag = items.length >= 5 && showItems ? 'FLAG_1_RENDERING_e8a1b6d3' : null;
 
   return (
@@ -89,12 +78,10 @@ export function BrokenList() {
       </button>
       <button onClick={addItem}>Add Item</button>
       
-      {/* Bug: Using wrong variable */}
-      {shouldShow && (
+      {showItems && (
         <ul>
-          {items.map((item) => (
-            // Bug: Missing key prop
-            <li>{item}</li>
+          {items.map((item, index) => (
+            <li key={index}>{item}</li>
           ))}
         </ul>
       )}
@@ -105,20 +92,15 @@ export function BrokenList() {
 }
 
 /**
- * Challenge 4: Props Destructuring Bug
- * Component is not receiving props correctly
+ * Challenge 4: User Card Challenge
  */
 export function UserCard({ username, email, age }) {
-  // Bug: Using wrong prop names - props are actually named differently
-
-  // Flag appears when all props are displayed correctly
   const hasAllProps = username && email && age;
   const flag = hasAllProps ? 'FLAG_1_PROPS_4c7e2a9f' : null;
 
   return (
     <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
       <h3>User Card Challenge</h3>
-      {/* Bug: Variables don't match the passed props */}
       <p>Name: {username}</p>
       <p>Email: {email}</p>
       <p>Age: {age}</p>
@@ -127,7 +109,6 @@ export function UserCard({ username, email, age }) {
   );
 }
 
-// Test component for UserCard
 export function UserCardTest() {
   return (
     <UserCard 
@@ -139,8 +120,7 @@ export function UserCardTest() {
 }
 
 /**
- * Challenge 5: State Update Bug
- * Form input is not updating correctly
+ * Challenge 5: Form State Challenge
  */
 export function BrokenForm() {
   const [formData, setFormData] = useState({
@@ -151,12 +131,10 @@ export function BrokenForm() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    // Bug: Direct mutation of state
     formData[name] = value;
     setFormData(formData);
   };
 
-  // Flag appears when form is filled correctly
   const isFormComplete = formData.name && formData.email && formData.message.length > 10;
   const flag = isFormComplete ? 'FLAG_1_FORM_9b3f6d2e' : null;
 
